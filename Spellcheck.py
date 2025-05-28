@@ -18,8 +18,8 @@ def correctgrammar(text):
     # Test the function with some sample data
 if __name__ == "__main__":
     sample_text = "He does likes the apples and oranges. She go to the store yesterday."
-    print(f"OriginalText: /n/n{sample_text}")
-    print("Corrected text:/n")
+    print(f"OriginalText: \n\n{sample_text}")
+    print("Corrected text:\n")
     print(correctgrammar(sample_text))
 
 
