@@ -10,4 +10,17 @@ def correctgrammar(text):
         "stream": False,
         "temperature": 0.4,      
     }
-    
+    response = requests.post(ollama_url, json=payload)
+    if response.status_code == 200:
+        return response.json().get("response", "No response from model")    
+    else:
+        return f"Error: {response.status_code} - {response.text}"   
+    # Test the function with some sample data
+if __name__ == "__main__":
+    sample_text = "He does likes the apples and oranges. She go to the store yesterday."
+    print(f"OriginalText: /n/n{sample_text}")
+    print("Corrected text:/n")
+    print(correctgrammar(sample_text))
+
+
+# Gradio interface for the spell checker
