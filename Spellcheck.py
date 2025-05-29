@@ -24,3 +24,4 @@ if __name__ == "__main__":
 
 
 # Gradio interface for the spell checker
+interface = gr.Interface(
