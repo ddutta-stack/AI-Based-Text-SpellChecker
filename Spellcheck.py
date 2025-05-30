@@ -16,12 +16,24 @@ def correctgrammar(text):
     else:
         return f"Error: {response.status_code} - {response.text}"   
     # Test the function with some sample data
-if __name__ == "__main__":
-    sample_text = "He does likes the apples and oranges. She go to the store yesterday."
-    print(f"OriginalText: \n\n{sample_text}")
-    print("Corrected text:\n")
-    print(correctgrammar(sample_text))
+    
+# if __name__ == "__main__":
+#     sample_text = "He does likes the apples and oranges. She go to the store yesterday."
+#     print(f"OriginalText: \n\n{sample_text}")
+#     print("Corrected text:\n")
+#     print(correctgrammar(sample_text))
+    
 
 
 # Gradio interface for the spell checker
 interface = gr.Interface(
+    fn=correctgrammar,
+    inputs=gr.Textbox(label="Enter text to correct grammar", lines=5),
+    outputs=gr.Textbox(label="Corrected text"), 
+    title="AI-Based Text Spell Checker",
+    description="This application uses Deepseek AI model via Ollama API to correct grammar in the provided text.",
+    theme="default",
+)
+# Launch the Gradio interface the web application
+if __name__ == "__main__":
+    interface.launch()
