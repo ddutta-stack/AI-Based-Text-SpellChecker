@@ -8,7 +8,7 @@ def correctgrammar(text):
         "model": "deepseek-r1:1.5b",
         "prompt":prompt,
         "stream": False,
-        "temperature": 0.4,      
+        "temperature": 0.3,      
     }
     response = requests.post(ollama_url, json=payload)
     if response.status_code == 200:
